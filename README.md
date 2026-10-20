@@ -1,28 +1,17 @@
-# Prompt Sensitivity and LLM Conclusion Stability (Topic T-5)
+# Formatting Sensitivity of Small Instruction-Tuned LLMs and the Effect of Few-Shot Examples
+Pathway A (reproduction + extension). Status: G1 draft. Nothing here has been executed yet.
 
-**Student Name:** Prince Garg  
-**Roll Number:** MNS2026002  
-**Course:** AI Tools for Research  
+Question: does FormatSpread-style formatting sensitivity (Sclar et al., 2024) appear in small open
+instruction-tuned models on a classification task, and does the number of few-shot examples reduce it
+(as ProSA, Zhuo et al., 2024, reports)?
 
-## Overview
-This repository contains the empirical code and experiment setup evaluating prompt formatting sensitivity on `Qwen/Qwen2.5-1.5B-Instruct` across 30 prompt formats on SST-2 ($k \in \{0, 1, 3, 5\}$).
+See research_decisions.md for the brief, evidence ledger and frozen protocol.
 
-## Key Results
-- **FormatSpread ($\Delta$):** 33.80 percentage points (Accuracy range: 53.60% to 87.40%)
-- **Standard Deviation ($\sigma$):** 0.0931
-- **Conclusion:** Minor prompt formatting syntax induces severe performance instability on small instruction-tuned models, supporting Hypothesis H1.
+## Quick start (Colab T4)  [TEST REQUIRED]
+    pip install -r requirements.txt
+    python src/env_check.py --model Qwen/Qwen2.5-1.5B-Instruct
+Paste the full console output into your AI chat / ai_assistance_log.md before proceeding.
 
-## Quick Start
-```bash
-# Clone repository
-git clone [https://github.com/YOUR_USERNAME/AITR_Lab02_MNS2026002_PromptSensitivity.git](https://github.com/YOUR_USERNAME/AITR_Lab02_MNS2026002_PromptSensitivity.git)
-cd AITR_Lab02_MNS2026002_PromptSensitivity
-
-# Install dependencies
-pip install torch transformers datasets pandas pyyaml tqdm
-
-# Run baseline environment verification (Gate G2)
-python src/env_check.py
-
-# Run evaluation pipeline (Gate G3)
-python scripts/run_eval.py
+## Layout
+configs/ frozen settings | src/ modules | scripts/ entrypoints | results/ real outputs only
+paper/ LaTeX | data/README.md access notes (no raw data committed)
